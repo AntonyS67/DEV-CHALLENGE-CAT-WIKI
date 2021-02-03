@@ -1,5 +1,16 @@
+import { useContext, useEffect } from "react"
+import { BreedContext } from "../context/breeds/breedContext"
+import {Link} from 'react-router-dom'
 
 function Breed() {
+    const breedContext = useContext(BreedContext);
+    const {breeds,getBreeds} = breedContext;
+
+    useEffect(()=>{
+        getBreeds(4);
+        // eslint-disable-next-line
+    },[])
+
     return (
         <div className="section-breed">
             <p>Most Searched Breeds</p>
@@ -9,25 +20,17 @@ function Breed() {
                     <p>66+ Breeds For you</p>
                     <p>to discover</p>
                 </div>
-                <a href="!#">SEE MORE →</a>
+                <Link to="/top">SEE MORE →</Link>
             </div>
             <div className="section-breed-images">
-                <div className="card-breed-image">
-                    <img src="/assets/image 1.png" alt="bengal" width="120" height="120"/>
-                    <p>Bengal</p>
-                </div>
-                <div className="card-breed-image">
-                    <img src="/assets/image 2.png" alt="savannah" width="120" height="120"/>
-                    <p>Savannah</p>
-                </div>
-                <div className="card-breed-image">
-                    <img src="/assets/image 3.png" alt="norwegian" width="120" height="120"/>
-                    <p>Norwegian Forest Cat</p>
-                </div>
-                <div className="card-breed-image">
-                    <img src="/assets/image 1.png" alt="selkirk" width="120" height="120"/>
-                    <p>Selkirk Rex</p>
-                </div>
+                {
+                    breeds.map(breed => (
+                        <div key={breed.id} className="card-breed-image">
+                            <img src={breed.image.url} alt={breed.name} width="120" height="120"/>
+                            <p><Link to={`breed/${breed.name}`}>{breed.name}</Link></p>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     )

@@ -1,7 +1,9 @@
 :root{
   --bg-color-banner:#050709;
 }
-
+footer{
+  margin-top:15%;
+}
 .container{
   margin: 1rem 6rem;
   font-family: 'Monserrat';
@@ -96,6 +98,10 @@
   font-size: 18px;
   font-weight: 500;
 }
+a{
+  text-decoration: none;
+  color: #291507;
+}
 .section-breed .line{
   width: 30px;
   height: 2px;
@@ -122,6 +128,42 @@
   grid-template-columns: auto auto auto auto;
   gap: 10px;
 }
+.catmore{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.catmore .images{
+  margin-left: 2rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto;
+  gap: 10px;
+}
+.catmore .images .image-item img{
+  width: 100%;
+}
+.catmore .images .image-item:nth-child(2){
+  grid-column: 2;
+  grid-row: 1 / 3;
+}
+.catmore .images .image-item:nth-child(2) img{
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.search-autocomplete{
+  margin-top: 2rem;
+}
+.search-autocomplete .wrapper .igZibq{
+  min-height: 30px;
+}
+.search-autocomplete .wrapper .igZibq > svg,.search-autocomplete .wrapper .evwHCa > svg{
+  margin-left: 10px !important;
+}
+.search-autocomplete .wrapper .igZibq,.search-autocomplete .wrapper .evwHCa{
+  font-size: 10px;
+}
 
 @media only screen  and (min-width: 0px) and (max-width:350px){
   .container{
@@ -133,7 +175,7 @@
   .banner-image img{
     height: 150px;
   }
-  .banner-description,.section-breed{
+  .banner-description,.section-breed,.catmore{
     padding-top: 1.5rem;
     padding-left: 1.5rem;
   }
@@ -160,7 +202,7 @@
     width: 20px;
     height: 25px;
   }
-  .section-breed{
+  .section-breed,.catmore{
     padding-right: 1.5rem;
   }
   .section-breed p{
@@ -202,7 +244,121 @@
     font-size: 12px;
     text-align: left;
   }
+  .catmore{
+    margin-top: 1rem;
+  }
+  .catmore .description .why{
+    width: 50px;
+    height: 4px;
+    background-color: #4d270c;
+    border-radius: 5px;
+  }
+  .catmore .description .title p{
+    font-size: 30px;
+    color: #291507;
+    font-weight: bold;
+    text-align: left;
+  }
+  .catmore .description p{
+    color: #291507;
+    text-align: justify;
+    font-size: 14px;
+  }
+  .catmore .description a{
+    color: rgba(41, 21, 7, .6);
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .catmore{
+    margin-bottom: 3rem;
+  }
+  .catmore .description .title,.catmore .description p,.catmore .description a{
+    margin-bottom: 2rem;
+  }
   
+  .catmore .description .title p{
+    margin-bottom: 0;
+  }
+  .catmore{
+    display: block;
+  }
+  .catmore .images{
+    margin-top: 2rem;
+    margin-left: 0;
+  }
+  .catmore .images .image-item img{
+    border-radius: 12px;
+  }
+  .search-autocomplete{
+    margin-top: 1rem;
+  }
+  .container-top{
+    margin:1rem 0;
+  }
+  .container-top .container-top-title{
+    color: #291507;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .container-images-top{
+    display: flex;
+    flex-direction: column;
+  }
+  .container-images-top img{
+    border-radius: 12px;
+  }
+  .container-item-top{
+    display: block;
+    margin-top: 2rem;
+  }
+  .container-description-top{
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+  .container-detail-description{
+    margin-top: 2rem;
+    color: #291507;
+  }
+  .container-detail-description img{
+    object-fit: cover;
+    border-radius: 12px;
+    width: 220px;
+    height: 220px;
+  }
+  .container-detail-description .detail-description{
+    margin-left: 0;
+  }
+  .container-detail-description .detail-description>div{
+    margin-bottom: 1rem;
+  }
+  .container-detail-description .detail-description .title{
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .container-detail-description .detail-description .description-score{
+    width: 40px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+  }
+  .score-container{
+    display: flex;
+    margin-top: 1rem;
+    justify-content: left;
+  }
+  .breed-detail{
+    display: block;
+    align-items: center;
+  }
+  .description-score{
+    margin-left: 1rem;
+  }
+  .description-score:nth-child(1){
+    margin-left: 0;
+  }
 }
 /* min-width: Aplica a partir de los PX especificados */
 /* max-width: Aplica hasta los PX especificados */
@@ -217,7 +373,7 @@
   .banner-image img{
     height: 150px;
   }
-  .banner-description,.section-breed{
+  .banner-description,.section-breed,.catmore{
     padding-top: 1.5rem;
     padding-left: 2rem;
   }
@@ -257,7 +413,7 @@
   .see-more a{
     display: none;
   }
-  .section-breed{
+  .section-breed,.catmore{
     padding-right: 1.5rem;
   }
   .section-breed-images{
@@ -286,6 +442,123 @@
   footer p{
     font-size: 12px;
     text-align: center;
+  }
+  .catmore{
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+  }
+  .catmore .description .why{
+    width: 50px;
+    height: 4px;
+    background-color: #4d270c;
+    border-radius: 5px;
+  }
+  .catmore .description .title p{
+    font-size: 30px;
+    color: #291507;
+    font-weight: bold;
+    text-align: left;
+  }
+  .catmore .description p{
+    color: #291507;
+    text-align: justify;
+    font-size: 14px;
+  }
+  .catmore .description a{
+    color: rgba(41, 21, 7, .6);
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .catmore .description .title,.catmore .description p,.catmore .description a{
+    margin-bottom: 2rem;
+  }
+  .catmore .description .title p{
+    margin-bottom: 0;
+  }
+  .catmore{
+    display: block;
+  }
+  .catmore .images{
+    margin-top: 2rem;
+    margin-left: 0;
+  }
+  .catmore .images .image-item img{
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  .search-autocomplete{
+    margin-top: 1rem;
+  }
+  .container-top{
+    margin:1rem 0;
+  }
+  .container-top .container-top-title{
+    color: #291507;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .container-images-top{
+    display: flex;
+    flex-direction: column;
+  }
+  .container-images-top img{
+    border-radius: 12px;
+  }
+  .container-item-top{
+    display: block;
+    margin-top: 2rem;
+  }
+  .container-description-top{
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+  .container-detail-description{
+    margin-top: 2rem;
+    color: #291507;
+  }
+  .container-detail-description img{
+    object-fit: cover;
+    border-radius: 12px;
+    width: 220px;
+    height: 220px;
+  }
+  .container-detail-description .detail-description{
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+  .container-detail-description .detail-description>div{
+    margin-bottom: 1rem;
+  }
+  .container-detail-description .detail-description>div strong{
+    font-size: 15px;
+  }
+  .container-detail-description .detail-description .title{
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .container-detail-description .detail-description .description-score{
+    width: 40px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+  }
+  .score-container{
+    display: flex;
+    margin-top: 1rem;
+    justify-content: left;
+  }
+  .breed-detail{
+    display: block;
+    align-items: center;
+  }
+  .description-score{
+    margin-left: 1rem;
+  }
+  .description-score:nth-child(1){
+    margin-left: 0;
   }
 }
 
@@ -329,6 +602,13 @@
     align-items: center;
     text-align: center;
   }
+  .catmore .description .title p{
+    font-size: 36px;
+  }
+  .search-autocomplete{
+    margin-top: .4rem;
+  }
+  
 }
 
 @media only screen and (min-width: 515px){
@@ -366,14 +646,14 @@
     width: 20px;
     height: 35px;
   }
-  .section-breed{
+  .section-breed,.catmore{
     padding-left: 2rem;
     padding-right: 2rem;
   }
   .section-breed p{
     font-size: 12px;
   }
-  .see-more{
+  .see-more,.catmore{
     padding-top: 1rem;
   }
   .see-more p{
@@ -387,6 +667,36 @@
   .section-breed-images{
     grid-template-columns: auto auto auto;
   }
+  .catmore .description p{
+    font-size: 16px;
+  }
+  .catmore .description a{
+    font-size: 16px;
+  }
+  .search-autocomplete{
+    margin-top: .8rem;
+  }
+  .search-autocomplete .wrapper .igZibq{
+    min-height: 44px;
+  }
+  .search-autocomplete .wrapper .igZibq,.search-autocomplete .wrapper .evwHCa{
+    font-size: 14px;
+  }
+  .container-item-top{
+    display: flex;
+    margin-top: 2rem;
+  }
+  .container-description-top{
+    margin-left: 1rem;
+  }
+  .breed-detail{
+    display: flex;
+    
+  }
+  .score-container{
+    margin-top: 0;
+    margin-left: 1rem;
+  }
 }
 
 @media only screen and (min-width: 650px) {
@@ -399,7 +709,7 @@
   .banner-image img{
     height: 300px;
   }
-  .banner-description{
+  .banner-description,.catmore{
     padding-top: 4rem;
     padding-left: 3rem;
   }
@@ -424,6 +734,20 @@
   footer{
     padding: 0 3rem;
   }
+  .catmore{
+    margin-top: 3rem;
+    padding-top: 0;
+  }
+  .catmore .description p{
+    font-size: 18px;
+  }
+  .catmore .description a{
+    font-size: 18px;
+  }
+  .search-autocomplete .wrapper .igZibq{
+    min-height: 48px;
+  }
+  
 }
 
 @media only screen and (min-width: 768px) {
@@ -433,7 +757,7 @@
   .banner-image img{
     height: 340px;
   }
-  .banner-description,.section-breed{
+  .banner-description,.section-breed,.catmore{
     padding-top: 4rem;
     padding-left: 4rem;
   }
@@ -467,7 +791,7 @@
     font-size: 14px;
     font-weight: bold;
   }
-  .section-breed{
+  .section-breed,.catmore{
     padding-right: 4rem;
   }
   .section-breed-images{
@@ -482,16 +806,36 @@
   footer p{
     font-size: 14px;
   }
+  .catmore{
+    display: flex;
+    margin-top: 3rem;
+    padding-top: 0;
+  }
+  .catmore .images{
+    margin-left: 2rem;
+  }
+  .catmore .description .title p{
+    font-size: 36px;
+  }
+  .search-autocomplete .wrapper .igZibq{
+    min-height: 52px;
+  }
+  .container-detail-description{
+    display: flex;
+  }
+  .container-detail-description .detail-description{
+    margin-left: 3rem;
+  }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 968px) {
   .banner{
     height: 450px;
   }
   .banner-image img{
     height: 450px;
   }
-  .banner-description,.section-breed{
+  .banner-description,.section-breed,.catmore{
     padding-top: 4rem;
     padding-left: 4rem;
   }
@@ -530,6 +874,9 @@
   }
   footer p{
     font-size: 18px;
+  }
+  .catmore .description .title p{
+    font-size: 44px;
   }
 }
 

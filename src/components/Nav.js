@@ -1,8 +1,9 @@
+import {Link} from 'react-router-dom';
 
 function Nav() {
     return (
         <nav className="nav">
-            <a href="/"><img src="./CatwikiLogo.svg" alt="logo cat"/></a>
+            <Link to="/"><img src="/CatwikiLogo.svg" alt="logo cat"/></Link>
         </nav>
     )
 }
