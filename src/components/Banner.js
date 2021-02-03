@@ -10,6 +10,7 @@ function Banner() {
     const {breedsSearch,getAllBreeds} = breedContext;
     useEffect(() => {
         getAllBreeds();
+        // eslint-disable-next-line 
     },[])
 
 
