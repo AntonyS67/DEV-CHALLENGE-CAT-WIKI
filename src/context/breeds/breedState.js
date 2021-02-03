@@ -3,6 +3,7 @@ import { clientAxios } from '../../config/axios'
 import {
     GET_BREEDS,
     GET_BREED_BY_NAME,
+    GET_BREEDS_SEARCH
 } from '../../types/breedTypes'
 import { BreedContext } from './breedContext'
 import BreedReducer from './breedReducer'
@@ -10,9 +11,22 @@ import BreedReducer from './breedReducer'
 const BreedState = props => {
     const initialState = {
         breeds:[],
-        breed:{}
+        breed:{},
+        breedsSearch:{}
     }
     const [state,dispatch] = useReducer(BreedReducer,initialState)
+
+    const getAllBreeds = async () => {
+        try {
+            const resp = await clientAxios.get(`/breeds?limit=60`);
+            dispatch({
+                type:GET_BREEDS_SEARCH,
+                payload:resp.data
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const getBreeds = async (limit) => {
         try {
@@ -42,8 +56,10 @@ const BreedState = props => {
             value={{
                 breeds:state.breeds,
                 breed:state.breed,
+                breedsSearch:state.breedsSearch,
                 getBreeds,
-                getBreedByName
+                getBreedByName,
+                getAllBreeds
             }}
         >
             {props.children}

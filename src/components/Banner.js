@@ -1,43 +1,32 @@
 
 import {ReactSearchAutocomplete} from 'react-search-autocomplete'
+import {useContext, useEffect} from 'react';
+import { BreedContext } from '../context/breeds/breedContext';
+import {useHistory} from 'react-router-dom';
 
 function Banner() {
-    const items = [
-        {
-          id: 0,
-          name: 'Cobol'
-        },
-        {
-          id: 1,
-          name: 'JavaScript'
-        },
-        {
-          id: 2,
-          name: 'Basic'
-        },
-        {
-          id: 3,
-          name: 'PHP'
-        },
-        {
-          id: 4,
-          name: 'Java'
-        }
-    ]
+    let history = useHistory();
+    const breedContext = useContext(BreedContext);
+    const {breedsSearch,getAllBreeds} = breedContext;
+    useEffect(() => {
+        getAllBreeds();
+    },[])
+
 
     const handleOnSearch = (string, results) => {
         // onSearch will have as the first callback parameter
         // the string searched and for the second the results.
-        console.log(string, results)
+        // console.log(string, results)
     }
     
     const handleOnSelect = (item) => {
         // the item selected
-        console.log(item)
+        // console.log('item',item)
+        history.push(`/breed/${item.name}`)
     }
 
     const handleOnFocus = () => {
-        console.log('Focused')
+        // console.log('Focused')
     }
 
     return (
@@ -55,7 +44,7 @@ function Banner() {
                 </div> */}
                 <div className="search-autocomplete">
                     <ReactSearchAutocomplete
-                        items={items}
+                        items={Object.values(breedsSearch)}
                         onSearch={handleOnSearch}
                         onSelect={handleOnSelect}
                         onFocus={handleOnFocus}
